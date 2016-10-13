@@ -96,6 +96,18 @@
                 </div>
                 <div class="block block--right">
                     <div class="block__inner">
+                        <?php $loopPara = new WP_Query( array( 'post_type' => 'para', 'order' => 'ASC' ) ); ?>
+                        <!-- loop start -->
+                        <?php if ( $loopPara->have_posts() ) : while ( $loopPara->have_posts() ) : $loopPara->the_post(); ?>
+                        <div class="content content--about" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                            <div class="content__tag-wrapper">
+                                <h2 class="content__tag"><?php echo get_the_title(); ?></h2>
+                            </div>
+                            <div class="content__inner"><?php echo get_the_content(); ?></div>
+                        </div>
+                        <?php endwhile; else : ?>
+                            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+                        <?php endif; ?>
                         <div class="content content--about" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
                             <div class="content__tag-wrapper">
                                 <h2 class="content__tag">Who?</h2>
@@ -107,6 +119,7 @@
                                 <p></p>
                             </div>
                         </div>
+                        <!-- loop ends -->
                         <div class="content content--projects" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
                             <div class="content__tag-wrapper">
                                 <h2 class="content__tag">What?</h2>
