@@ -20,7 +20,7 @@ function create_post_type_home_para() {
       'menu_icon'       => 'dashicons-megaphone',//url or dashicon here for icon.png
       'description'     => 'home para items for your website/products.',
       'supports'        => array(//to add various supports: for featured-images=thumbnails
-          'title','editor'/*,'author'*/,'thumbnail','custom-fields'
+          'title','editor','author'/*,'thumbnail'*/,'custom-fields'
       ),
       'taxonomies'      => array('category'),
       'public'          => true,
